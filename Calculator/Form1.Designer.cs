@@ -38,8 +38,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.RussiaRadioButton = new System.Windows.Forms.RadioButton();
+            this.USARadioButton = new System.Windows.Forms.RadioButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -94,7 +94,7 @@
             // dateTimePicker3
             // 
             this.dateTimePicker3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dateTimePicker3.CustomFormat = "MMMM dd yyyy hh:mm:ss";
+            this.dateTimePicker3.CustomFormat = "MM.dd.yyyy HH:mm:ss";
             this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker3.Location = new System.Drawing.Point(41, 220);
             this.dateTimePicker3.Name = "dateTimePicker3";
@@ -113,7 +113,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dateTimePicker2.CustomFormat = "MMMM dd yyyy hh:mm:ss";
+            this.dateTimePicker2.CustomFormat = "MM.dd.yyyy HH:mm:ss";
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(41, 134);
             this.dateTimePicker2.Name = "dateTimePicker2";
@@ -132,7 +132,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dateTimePicker1.CustomFormat = "MMMM dd yyyy hh:mm:ss";
+            this.dateTimePicker1.CustomFormat = "MM.dd.yyyy HH:mm:ss";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(41, 98);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -141,36 +141,38 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton4);
-            this.groupBox2.Controls.Add(this.radioButton3);
+            this.groupBox2.Controls.Add(this.RussiaRadioButton);
+            this.groupBox2.Controls.Add(this.USARadioButton);
             this.groupBox2.Location = new System.Drawing.Point(30, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(397, 43);
             this.groupBox2.TabIndex = 43;
             this.groupBox2.TabStop = false;
             // 
-            // radioButton3
+            // RussiaRadioButton
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Checked = true;
-            this.radioButton3.Location = new System.Drawing.Point(13, 18);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(170, 17);
-            this.radioButton3.TabIndex = 0;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Американский формат даты";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.RussiaRadioButton.AutoSize = true;
+            this.RussiaRadioButton.Location = new System.Drawing.Point(204, 18);
+            this.RussiaRadioButton.Name = "RussiaRadioButton";
+            this.RussiaRadioButton.Size = new System.Drawing.Size(156, 17);
+            this.RussiaRadioButton.TabIndex = 1;
+            this.RussiaRadioButton.TabStop = true;
+            this.RussiaRadioButton.Text = "Российский формат даты";
+            this.RussiaRadioButton.UseVisualStyleBackColor = true;
+            this.RussiaRadioButton.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
-            // radioButton4
+            // USARadioButton
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(204, 18);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(156, 17);
-            this.radioButton4.TabIndex = 1;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Российский формат даты";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.USARadioButton.AutoSize = true;
+            this.USARadioButton.Checked = true;
+            this.USARadioButton.Location = new System.Drawing.Point(13, 18);
+            this.USARadioButton.Name = "USARadioButton";
+            this.USARadioButton.Size = new System.Drawing.Size(170, 17);
+            this.USARadioButton.TabIndex = 0;
+            this.USARadioButton.TabStop = true;
+            this.USARadioButton.Text = "Американский формат даты";
+            this.USARadioButton.UseVisualStyleBackColor = true;
+            this.USARadioButton.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
             // comboBox1
             // 
@@ -271,8 +273,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton RussiaRadioButton;
+        private System.Windows.Forms.RadioButton USARadioButton;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;

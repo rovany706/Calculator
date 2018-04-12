@@ -19,7 +19,28 @@ namespace Calculator
 
         private void keyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)) e.Handled = true ;
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)) e.Handled = true;
+        }
+
+        private void CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton button = (RadioButton)sender;
+            if (button.Checked)
+            {
+                switch (button.Name)
+                {
+                    case "RussiaRadioButton":
+                        dateTimePicker1.CustomFormat = "dd.MM.yyyy HH:mm:ss";
+                        dateTimePicker2.CustomFormat = "dd.MM.yyyy HH:mm:ss";
+                        dateTimePicker3.CustomFormat = "dd.MM.yyyy HH:mm:ss";
+                        break;
+                    case "USARadioButton":
+                        dateTimePicker1.CustomFormat = "MM.dd.yyyy HH:mm:ss";
+                        dateTimePicker2.CustomFormat = "MM.dd.yyyy HH:mm:ss";
+                        dateTimePicker3.CustomFormat = "MM.dd.yyyy HH:mm:ss";
+                        break;
+                }
+            }
         }
     }
 }

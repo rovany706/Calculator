@@ -147,7 +147,7 @@ namespace Calculator
         }
 
         //Високосный ли год
-        private static bool isLeapYear(int year)
+        private static bool IsLeapYear(int year)
         {
             if (year % 4 == 0)
             {
@@ -168,7 +168,7 @@ namespace Calculator
             switch (month)
             {
                 case 2: //Февраль
-                    if (isLeapYear(year))
+                    if (IsLeapYear(year))
                         return 29;
                     return 28;
                 case 8: //В августе 31 день
