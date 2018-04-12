@@ -19,7 +19,7 @@ namespace Calculator
 
         private void keyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && textBox1.Text.Length > 5) e.Handled = true ;
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)) e.Handled = true ;
         }
     }
 }
