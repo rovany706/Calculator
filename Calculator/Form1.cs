@@ -46,12 +46,14 @@ namespace View
 
         private void button2_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = Calc.DateСalculation (dateTimePicker3.Value, textBox1.Text, textBox2.Text, radioButton1.Checked);
+            richTextBox1.Text = Calc.DateСalculation (dateTimePicker3.Value, textBox1.Text, textBox2.Text,
+                radioButton1.Checked, USARadioButton.Checked);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = Calc.DistanceBetweenDates(dateTimePicker1.Value, dateTimePicker2.Value);
+            richTextBox1.Text = Calc.DistanceBetweenDates(dateTimePicker1.Value, 
+                dateTimePicker2.Value, USARadioButton.Checked);
         }
     }
 }
