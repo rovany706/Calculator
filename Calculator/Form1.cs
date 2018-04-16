@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Controller;
 
-namespace Calculator
+namespace View
 {
     public partial class Form1 : Form
     {
@@ -41,6 +42,16 @@ namespace Calculator
                         break;
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Calc.DateСalculation (dateTimePicker3.Value, textBox1.Text, textBox2.Text, radioButton1.Checked);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Calc.DistanceBetweenDates(dateTimePicker1.Value, dateTimePicker2.Value);
         }
     }
 }
