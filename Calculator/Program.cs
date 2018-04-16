@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Views;
 
-namespace Controller
+namespace Calculator
 {
     static class Program
     {
@@ -17,9 +16,7 @@ namespace Controller
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var form = new Form1();
-            var calculator = new Calk(form);
-            Application.Run(form);
+            Application.Run(new Form1());
         }
     }
 }
