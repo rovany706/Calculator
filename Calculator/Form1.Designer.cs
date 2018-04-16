@@ -55,7 +55,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(319, 220);
-            this.textBox1.MaxLength = 5;
+            this.textBox1.MaxLength = 4;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(77, 20);
             this.textBox1.TabIndex = 42;
@@ -176,6 +176,13 @@
             this.USARadioButton.UseVisualStyleBackColor = true;
             this.USARadioButton.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Location = new System.Drawing.Point(0, 0);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 0;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -224,7 +231,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(411, 220);
-            this.textBox2.MaxLength = 5;
+            this.textBox2.MaxLength = 4;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(77, 20);
             this.textBox2.TabIndex = 51;
