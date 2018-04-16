@@ -17,9 +17,9 @@ namespace Calculator
 
         public Data(int year, int month, int day, int hour, int minute, int second)
         {
-            _year = year;
-            _month = month;
-            _day = day;
+            _year = year + (month + day / 31) / 12;
+            _month = (month + day / 31) % 12;
+            _day = day % 31;
             _hour = hour;
             _minute = minute;
             _second = second;
