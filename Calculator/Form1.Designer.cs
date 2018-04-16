@@ -1,4 +1,4 @@
-﻿namespace Calculator
+﻿namespace Views
 {
     partial class Form1
     {
