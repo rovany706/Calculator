@@ -25,7 +25,7 @@ namespace Controller
             DateTime dateTimePicker2, bool USARadioButton)
         {
             string res = null;
-            res = Butt1(res, USARadioButton, dateTimePicker1, dateTimePicker1);
+            res = Butt1(res, USARadioButton, dateTimePicker1, dateTimePicker2);
             return res;
         }
         public static string DateСalculation(DateTime dateTimePicker3, string textBox1,
@@ -41,30 +41,43 @@ namespace Controller
         public static void Part1(bool rus, DateTime one, DateTime two)
         {
             //конвертирование данных в даты
-            string dt1 = one.ToString();
-            string[] dat = dt1.Split('.', ':', ' ');
-            string dt2 = two.ToString();
-            string[] dat2 = dt2.Split('.', ':', ' ');
-            month = Convert.ToInt32(dat[0]);
-            day = Convert.ToInt32(dat[1]);
-            year = Convert.ToInt32(dat[2]);
-            hour = Convert.ToInt32(dat[3]);
-            minute = Convert.ToInt32(dat[4]);
-            second = Convert.ToInt32(dat[5]);
-            month2 = Convert.ToInt32(dat2[0]);
-            day2 = Convert.ToInt32(dat2[1]);
-            year2 = Convert.ToInt32(dat2[2]);
-            hour2 = Convert.ToInt32(dat2[3]);
-            minute2 = Convert.ToInt32(dat2[4]);
-            second2 = Convert.ToInt32(dat2[5]);
+            //string dt1 = one.ToString();
+            //string[] dat = dt1.Split('.', ':', ' ');
+            //string dt2 = two.ToString();
+            //string[] dat2 = dt2.Split('.', ':', ' ');
+            //month = Convert.ToInt32(dat[0]);
+            //day = Convert.ToInt32(dat[1]);
+            //year = Convert.ToInt32(dat[2]);
+            //hour = Convert.ToInt32(dat[3]);
+            //minute = Convert.ToInt32(dat[4]);
+            //second = Convert.ToInt32(dat[5]);
+            //month2 = Convert.ToInt32(dat2[0]);
+            //day2 = Convert.ToInt32(dat2[1]);
+            //year2 = Convert.ToInt32(dat2[2]);
+            //hour2 = Convert.ToInt32(dat2[3]);
+            //minute2 = Convert.ToInt32(dat2[4]);
+            //second2 = Convert.ToInt32(dat2[5]);
 
-            if (!rus)//если рос. формат
-            {
-                day = Convert.ToInt32(dat[0]);
-                month = Convert.ToInt32(dat[1]);
-                day2 = Convert.ToInt32(dat2[0]);
-                month2 = Convert.ToInt32(dat2[1]);
-            }
+            //if (!rus)//если рос. формат
+            //{
+            //    day = Convert.ToInt32(dat[0]);
+            //    month = Convert.ToInt32(dat[1]);
+            //    day2 = Convert.ToInt32(dat2[0]);
+            //    month2 = Convert.ToInt32(dat2[1]);
+            //}
+            month = one.Month;
+            day = one.Day;
+            year = one.Year;
+            hour = one.Hour;
+            minute = one.Minute;
+            second = one.Second;
+
+            month2 = two.Month;
+            day2 = two.Day;
+            year2 = two.Year;
+            hour2 = two.Hour;
+            minute2 = two.Minute;
+            second2 = two.Second;
         }
         /// <summary>
         /// вторая часть программы
@@ -76,19 +89,13 @@ namespace Controller
         public static void Part2(bool rus, string mn, string d, DateTime three)
         {
             //конвертирование в данных в даты
-            string dt3 = three.ToString();
-            string[] dat3 = dt3.Split('.', ':', ' ');
-            month = Convert.ToInt32(dat3[0]);
-            day = Convert.ToInt32(dat3[1]);
-            year = Convert.ToInt32(dat3[2]);
-            hour = Convert.ToInt32(dat3[3]);
-            minute = Convert.ToInt32(dat3[4]);
-            second = Convert.ToInt32(dat3[5]);
-            if (!rus)//если рос. формат
-            {
-                day = Convert.ToInt32(dat3[0]);
-                month = Convert.ToInt32(dat3[1]);
-            }
+            month = three.Month;
+            day = three.Day;
+            year = three.Year;
+            hour = three.Hour;
+            minute = three.Minute;
+            second = three.Second;
+            
             if (mn != null && mn != "")
                 month2 = Convert.ToInt32(mn);
             else
@@ -111,9 +118,9 @@ namespace Controller
             Part1(rus, one, two);
             Data data1 = new Data(year, month, day, hour, minute, second);
             Data data2 = new Data(year2, month2, day2, hour2, minute2, second2);
-            tx = ("1) data1 - data2 = кол-во месяцев " + NumMonth(data1 - data2) + "\n2) data1 - data2 = кол-во недель " + NumWeek(data1 - data2) +
-                  "\n3) data1 - data2 = кол-во дней " + NumDay(data1 - data2) + "\n4) data1 - data2 = кол-во часов " + NumHour(data1 - data2) + "\n5) data1 - data2 = кол-во минут " + NumMinute(data1 - data2) +
-                  "\n6) data1 - data2 = кол-во секунд " + NumSec(data1 - data2));
+            tx = "1) data1 - data2 = кол-во месяцев " + NumMonth(data1 - data2) + "\n2) data1 - data2 = кол-во недель " + NumWeek(data1 - data2) +
+                 "\n3) data1 - data2 = кол-во дней " + NumDay(data1 - data2) + "\n4) data1 - data2 = кол-во часов " + NumHour(data1 - data2) + "\n5) data1 - data2 = кол-во минут " + NumMinute(data1 - data2) +
+                 "\n6) data1 - data2 = кол-во секунд " + NumSec(data1 - data2);
             return tx;
         }
         /// <summary>
@@ -128,22 +135,24 @@ namespace Controller
         {
             Part2(rus, mn, d, three);
             Data data1 = new Data(year, month, day, hour, minute, second);
-            Data data2 = new Data(0, month2, 0, 0, 0, 0);
-            Data data3 = new Data(0, 0, day2, 0, 0, 0);
+            //Data data2 = new Data(0, month2, 0, 0, 0, 0);
+            //Data data3 = new Data(0, 0, day2, 0, 0, 0);
+            Data data2 = new Data(0, month2, day2, 0, 0, 0);
+            Data result = data1 - data2;
             if (one)
-                tx = ("1) data1 + месяцы = data2  " + PrintData(data1 + data2, rus) + "\n2) data1 +дни = data2  " + PrintData(data1 + data3, rus)).ToString();
+                tx = "1) data1 + месяцы + дни = " + PrintData(result, rus);
             else
-                tx = ("1) data1 - месяцы = data2  " + PrintData(data1 - data2, rus) + "\n2) data1 - дни = data2  " + PrintData(data1 - data3, rus)).ToString();
+                tx = "1) data1 - месяцы - дни = " + PrintData(result, rus);
             return tx;
         }
         static string PrintData(Data data, bool rus)
         {
             if (!rus)
             {
-                return data.Month.ToString() + "." + data.Day.ToString() + "." + data.Year.ToString() + " " + data.Hour + ":" + data.Minute + ":" + data.Second;
+                return data.Month + "." + data.Day + "." + data.Year + " " + data.Hour + ":" + data.Minute + ":" + data.Second;
             }
             else
-                return data.Day.ToString() + "." + data.Month.ToString() + "." + data.Year.ToString() + " " + data.Hour + ":" + data.Minute + ":" + data.Second;
+                return data.Day + "." + data.Month + "." + data.Year + " " + data.Hour + ":" + data.Minute + ":" + data.Second;
         }
         /// <summary>
         /// перевод
@@ -154,32 +163,32 @@ namespace Controller
         //перевод в месяцы
         static int NumMonth(Data dat)
         {
-            return dat.Month + dat.Year / 365;
+            return dat.Month + dat.Year * 12;
         }
         //перевод в недели
         static int NumWeek(Data dat)
         {
-            return dat.Day / 7 + dat.Month / 4 + dat.Year / 52;
+            return dat.Day / 7 + dat.Month * 4 + dat.Year * 52;
         }
         //перевод в дни
         static int NumDay(Data dat)
         {
-            return NumWeek(dat) * 7;
+            return dat.Month * 31 + dat.Year * 365 + dat.Day;
         }
         //перевод в часы
         static int NumHour(Data dat)
         {
-            return NumDay(dat) * 24;
+            return NumDay(dat) * 24 + dat.Hour;
         }
         //перевод в минуты
         static int NumMinute(Data dat)
         {
-            return NumHour(dat) * 60;
+            return NumHour(dat) * 60 + dat.Minute;
         }
         //перевод в секунды
         static int NumSec(Data dat)
         {
-            return NumMinute(dat) * 60;
+            return NumMinute(dat) * 60 + dat.Second;
         }
 
 

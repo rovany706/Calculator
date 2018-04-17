@@ -32,8 +32,11 @@ namespace Model
             {
                 if (value < 0)
                 {
-                    Minute--;
-                    _second = 60 - Math.Abs(value);
+                    if (Minute != 0)
+                    {
+                        Minute--;
+                        _second = 60 - Math.Abs(value);
+                    }
                     return;
                 }
 
@@ -54,8 +57,11 @@ namespace Model
             {
                 if (value < 0)
                 {
-                    Hour--;
-                    _minute = 60 - Math.Abs(value);
+                    if (Hour != 0)
+                    {
+                        Hour--;
+                        _minute = 60 - Math.Abs(value);
+                    }
                     return;
                 }
 
@@ -76,8 +82,11 @@ namespace Model
             {
                 if (value < 0)
                 {
-                    Day--;
-                    _hour = 24 - Math.Abs(value);
+                    if (Day != 0)
+                    {
+                        Day--;
+                        _hour = 24 - Math.Abs(value);
+                    }
                     return;
                 }
 
@@ -99,8 +108,13 @@ namespace Model
             {
                 if (value <= 0)
                 {
-                    Month--;
-                    _day = DaysInMonth(Year, Month) - value;
+                    if (Month != 0)
+                    {
+                        Month--;
+                        _day = DaysInMonth(Year, Month) - Math.Abs(value);
+                    }
+                    else
+                        _day = Math.Abs(value);
                     return;
                 }
 
@@ -124,8 +138,15 @@ namespace Model
             {
                 if (value <= 0)
                 {
-                    Year--;
-                    _month = 12 - value;
+                    if (Year != 0)
+                    {
+                        Year--;
+                        _month = 12 - value;
+                    }
+                    else
+                    {
+                        _month = Math.Abs(value);
+                    }
                     return;
                 }
 
@@ -247,22 +268,24 @@ namespace Model
 
         public static Data operator -(Data d1, Data d2)
         {
-            Data result = new Data(d1.Year - d2.Year, 0, 0, 0, 0, 0);
+            Data result;
             if (d1 > d2)
             {
-                result.Month -= d1.Month - d2.Month;
-                result.Day -= d1.Day - d2.Day;
-                result.Hour -= d1.Hour - d2.Hour;
-                result.Minute -= d1.Minute - d2.Minute;
-                result.Second -= d1.Second - d2.Second;
+                result = new Data(d1.Year - d2.Year, 0, 0, 0, 0, 0);
+                result.Month = d1.Month - d2.Month;
+                result.Day = d1.Day - d2.Day;
+                result.Hour = d1.Hour - d2.Hour;
+                result.Minute = d1.Minute - d2.Minute;
+                result.Second = d1.Second - d2.Second;
             }
             else
             {
-                result.Month -= d2.Month - d1.Month;
-                result.Day -= d2.Day - d1.Day;
-                result.Hour -= d2.Hour - d1.Hour;
-                result.Minute -= d2.Minute - d1.Minute;
-                result.Second -= d2.Second - d1.Second;
+                result = new Data(d2.Year - d1.Year, 0, 0, 0, 0, 0);
+                result.Month = d2.Month - d1.Month;
+                result.Day = d2.Day - d1.Day;
+                result.Hour = d2.Hour - d1.Hour;
+                result.Minute = d2.Minute - d1.Minute;
+                result.Second = d2.Second - d1.Second;
             }
 
             return result;
@@ -270,11 +293,11 @@ namespace Model
         public static Data operator +(Data d1, Data d2)
         {
             Data result = new Data(d1.Year + d2.Year, 0, 0, 0, 0, 0);
-            result.Month += d1.Month + d2.Month;
-            result.Day += d1.Day + d2.Day;
-            result.Hour += d1.Hour + d2.Hour;
-            result.Minute += d1.Minute + d2.Minute;
-            result.Second += d1.Second + d2.Second;
+            result.Month = d1.Month + d2.Month;
+            result.Day = d1.Day + d2.Day;
+            result.Hour = d1.Hour + d2.Hour;
+            result.Minute = d1.Minute + d2.Minute;
+            result.Second = d1.Second + d2.Second;
 
             return result;
         }
