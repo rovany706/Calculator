@@ -41,30 +41,6 @@ namespace Controller
         public static void Part1(bool rus, DateTime one, DateTime two)
         {
             //конвертирование данных в даты
-            //string dt1 = one.ToString();
-            //string[] dat = dt1.Split('.', ':', ' ');
-            //string dt2 = two.ToString();
-            //string[] dat2 = dt2.Split('.', ':', ' ');
-            //month = Convert.ToInt32(dat[0]);
-            //day = Convert.ToInt32(dat[1]);
-            //year = Convert.ToInt32(dat[2]);
-            //hour = Convert.ToInt32(dat[3]);
-            //minute = Convert.ToInt32(dat[4]);
-            //second = Convert.ToInt32(dat[5]);
-            //month2 = Convert.ToInt32(dat2[0]);
-            //day2 = Convert.ToInt32(dat2[1]);
-            //year2 = Convert.ToInt32(dat2[2]);
-            //hour2 = Convert.ToInt32(dat2[3]);
-            //minute2 = Convert.ToInt32(dat2[4]);
-            //second2 = Convert.ToInt32(dat2[5]);
-
-            //if (!rus)//если рос. формат
-            //{
-            //    day = Convert.ToInt32(dat[0]);
-            //    month = Convert.ToInt32(dat[1]);
-            //    day2 = Convert.ToInt32(dat2[0]);
-            //    month2 = Convert.ToInt32(dat2[1]);
-            //}
             month = one.Month;
             day = one.Day;
             year = one.Year;
@@ -135,8 +111,6 @@ namespace Controller
         {
             Part2(rus, mn, d, three);
             Data data1 = new Data(year, month, day, hour, minute, second);
-            //Data data2 = new Data(0, month2, 0, 0, 0, 0);
-            //Data data3 = new Data(0, 0, day2, 0, 0, 0);
             Data data2 = new Data(0, month2, day2, 0, 0, 0);
             Data result = data1 - data2;
             if (one)
