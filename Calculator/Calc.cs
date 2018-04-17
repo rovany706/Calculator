@@ -112,7 +112,7 @@ namespace Controller
             Part2(rus, mn, d, three);
             Data data1 = new Data(year, month, day, hour, minute, second);
             Data data2 = new Data(0, month2, day2, 0, 0, 0);
-            Data result = data1 - data2;
+            Data result = one ? data1 + data2 : data1 - data2;
             if (one)
                 tx = "1) data1 + месяцы + дни = " + PrintData(result, rus);
             else
@@ -121,7 +121,7 @@ namespace Controller
         }
         static string PrintData(Data data, bool rus)
         {
-            if (!rus)
+            if (rus)
             {
                 return data.Month + "." + data.Day + "." + data.Year + " " + data.Hour + ":" + data.Minute + ":" + data.Second;
             }
